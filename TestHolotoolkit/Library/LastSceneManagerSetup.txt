@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Gustave/Scenes/MainMenu.unity
+- path: Assets/Scenes/Gustave_menu_scene.unity
   isLoaded: 1
   isActive: 1

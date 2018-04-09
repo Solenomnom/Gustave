@@ -92,10 +92,16 @@ public class MenuManager : MonoBehaviour {
            _recipeWindowsGameobjectList.Add(createRecipeWindow(_jsonFilePathList[_jsonPathCurrentPositionInList]));
             _jsonPathCurrentPositionInList++;
         }
-        if (_jsonPathStartPositionInList != 0)
+        if (_jsonPathStartPositionInList != 0) { 
             _leftArrow = instantiateArrow(_prefabLeftArrow);
-        if (_jsonPathStartPositionInList < _jsonFilePathList.Count - 4)
+            _leftArrow.GetComponent<MenuLeftArrow>().enabled = true;
+            _leftArrow.GetComponent<RecipeLeftArrow>().enabled = false;
+        }
+        if (_jsonPathStartPositionInList < _jsonFilePathList.Count - 4) { 
             _rightArrow = instantiateArrow(_prefabRightArrow);
+            _rightArrow.GetComponent<MenuRightArrow>().enabled = true;
+            _rightArrow.GetComponent<RecipeRightArrow>().enabled = false;
+        }
     }
 
     private GameObject instantiateArrow(GameObject arrow)

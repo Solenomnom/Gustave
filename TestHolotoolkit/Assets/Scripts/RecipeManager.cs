@@ -74,11 +74,7 @@ public class RecipeManager : MonoBehaviour {
 
     void checkCommands()
     {
-        if (Input.GetKeyDown("right"))
-            _stepCanvas.NextStep(_jsonRecipeReader);
-
-        if (Input.GetKeyDown("left"))
-            _stepCanvas.PrevStep(_jsonRecipeReader);
+      
         //if (Input.GetKeyDown("space") && _videoset)
         // _movie.
 
@@ -86,6 +82,19 @@ public class RecipeManager : MonoBehaviour {
             loadBackMenu();
 
     }
+
+    public void nextStep()
+    {
+        _stepCanvas.NextStep(_jsonRecipeReader);
+
+    }
+
+    public void prevStep()
+    {
+        _stepCanvas.PrevStep(_jsonRecipeReader);
+    } 
+
+  
 
 
 }

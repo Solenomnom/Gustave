@@ -7,7 +7,6 @@ using System;
 public class MenuLeftArrow : MonoBehaviour, IInputClickHandler {
     public void OnInputClicked(InputClickedEventData eventData)
     {
-        print("aaaah");
         GameObject.Find("Menu Manager").GetComponent<MenuManager>().prevRecipeWindowsList();
 
     }

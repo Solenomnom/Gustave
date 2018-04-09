@@ -8,7 +8,13 @@ using UnityEngine.UI;
 public class StepCanvas : MonoBehaviour {
 
     // Use this for initialization
-    
+
+    [SerializeField]
+    private GameObject _prefabRightArrow;
+
+    [SerializeField]
+    private GameObject _prefabLeftArrow;
+
     public Square square;
     public TextAsset json;
     public Text stepDescribe;
@@ -16,6 +22,9 @@ public class StepCanvas : MonoBehaviour {
     public GameObject help;
     public Mesh squareMesh;
     public Mesh tubeMesh;
+    public GameObject _leftArrow;
+    public GameObject _rightArrow;
+
     public int progress = -1;
     int stepLength = 0;
     
@@ -30,6 +39,7 @@ public class StepCanvas : MonoBehaviour {
         print("here :" + json_recipe_reader.getCurrentRecipeNbSteps().ToString());
         stepLength = json_recipe_reader.getCurrentRecipeNbSteps();
         squareArray = new Square[stepLength];
+        updateArrows();
     }
 
     // Update is called once per frame
@@ -136,6 +146,28 @@ public class StepCanvas : MonoBehaviour {
             progress = 0;
         }
         UpdateHud(json_recipe_reader);
+        updateArrows();
+
+    }
+
+    public void updateArrows()
+    {
+        Destroy(_rightArrow);
+        Destroy(_leftArrow);
+        if (progress != -1)
+        {
+            print("progress != -1");
+            _leftArrow = instantiateArrow(_prefabLeftArrow);
+            _leftArrow.GetComponent<MenuLeftArrow>().enabled = false;
+            _leftArrow.GetComponent<RecipeLeftArrow>().enabled = true;
+        }
+        print("progress : " + progress + " -- steplength : " + stepLength);
+        if (progress < stepLength - 1)
+        {
+            _rightArrow = instantiateArrow(_prefabRightArrow);
+            _rightArrow.GetComponent<MenuRightArrow>().enabled = false;
+            _rightArrow.GetComponent<RecipeRightArrow>().enabled = true;
+        }
     }
 
     public void PrevStep(JsonRecipeReader json_recipe_reader)
@@ -144,6 +176,15 @@ public class StepCanvas : MonoBehaviour {
         if (progress < 0)
             progress = 0;
         UpdateHud(json_recipe_reader);
+      
+        updateArrows();
+    }
+
+    private GameObject instantiateArrow(GameObject arrow)
+    {
+        GameObject tmp = Instantiate(arrow);
+        tmp.transform.SetParent(gameObject.transform, false);
+        return tmp;
     }
 
 }

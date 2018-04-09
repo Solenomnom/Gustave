@@ -2155,6 +2155,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 838b3bb0c40797d409b3425d4c39316e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _prefabRightArrow: {fileID: 1764196099932436, guid: df9677636988d0c4181c21e7f5b0d8cb,
+    type: 2}
+  _prefabLeftArrow: {fileID: 1298673320104700, guid: c1393440e02a6cc49835841b85aefa63,
+    type: 2}
   square: {fileID: 1847013494}
   json: {fileID: 0}
   stepDescribe: {fileID: 1866139514}
@@ -2162,6 +2166,8 @@ MonoBehaviour:
   help: {fileID: 398395928}
   squareMesh: {fileID: 0}
   tubeMesh: {fileID: 0}
+  _leftArrow: {fileID: 0}
+  _rightArrow: {fileID: 0}
   progress: -1
 --- !u!114 &1805120113
 MonoBehaviour:
@@ -2170,7 +2176,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1805120109}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbad991a9894486418e4988222483ef8, type: 3}
   m_Name: 

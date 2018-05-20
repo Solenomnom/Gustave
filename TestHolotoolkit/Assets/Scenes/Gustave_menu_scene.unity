@@ -304,12 +304,12 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 223549460601808784, guid: ffac88ea652e71c4d9b5782f659c9d61,
+    - target: {fileID: 223531112516744182, guid: ffac88ea652e71c4d9b5782f659c9d61,
         type: 2}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1228157598}
-    - target: {fileID: 223531112516744182, guid: ffac88ea652e71c4d9b5782f659c9d61,
+    - target: {fileID: 223549460601808784, guid: ffac88ea652e71c4d9b5782f659c9d61,
         type: 2}
       propertyPath: m_Camera
       value: 

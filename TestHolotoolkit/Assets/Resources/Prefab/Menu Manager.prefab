@@ -62,8 +62,6 @@ GameObject:
   - component: {fileID: 114770858593416766}
   - component: {fileID: 114701295784289394}
   - component: {fileID: 225800803024489882}
-  - component: {fileID: 65318086121169190}
-  - component: {fileID: 114464729993888176}
   - component: {fileID: 114663666672318480}
   m_Layer: 0
   m_Name: Menu Window Bar
@@ -135,8 +133,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.15, z: 0.2}
-  m_Center: {x: 0.066, y: 0.3, z: 0}
+  m_Size: {x: 1, y: 0.7, z: 0.05}
+  m_Center: {x: 0.066, y: 0, z: 0}
 --- !u!65 &65163521719626456
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -145,21 +143,9 @@ BoxCollider:
   m_GameObject: {fileID: 1010857295728312}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1022, y: 550, z: 200}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65318086121169190
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1599686460001618}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 1022, y: 100, z: 200}
+  m_Size: {x: 1022, y: 550, z: 200}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114018445560194056
 MonoBehaviour:
@@ -250,23 +236,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 
---- !u!114 &114464729993888176
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1599686460001618}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbad991a9894486418e4988222483ef8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DefaultGazeDistance: 2
-  PlaceParentOnTap: 0
-  ParentGameObjectToPlace: {fileID: 0}
-  IsBeingPlaced: 0
-  AllowMeshVisualizationControl: 1
-  UseColliderCenter: 0
 --- !u!114 &114598700065605356
 MonoBehaviour:
   m_ObjectHideFlags: 1

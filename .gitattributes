@@ -45,3 +45,5 @@
 *.reason filter=lfs diff=lfs merge=lfs -text
 *.lxo filter=lfs diff=lfs merge=lfs -text
 *.ogv filter=lfs diff=lfs merge=lfs -text
+TestHolotoolkit/App/TestHolotoolkit/Data/resources.assets filter=lfs diff=lfs merge=lfs -text
+TestHolotoolkit/Library/metadata/fd/fdbef2ca30fe5aa4a8dacfcec226d356 filter=lfs diff=lfs merge=lfs -text

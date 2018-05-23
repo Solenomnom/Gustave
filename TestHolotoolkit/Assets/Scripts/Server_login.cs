@@ -57,6 +57,8 @@ public class Server_login : MonoBehaviour, IInputClickHandler
         StartCoroutine(LogInRequest("password", emailField.text, passwordField.text));
     }
 
+    // GameObject parent = GameObject.Find("Menu Manager");
+
     public IEnumerator LogInRequest(string grant_type, string email, string password)
     {
         WWWForm form = new WWWForm();
@@ -74,8 +76,17 @@ public class Server_login : MonoBehaviour, IInputClickHandler
             if (www.isNetworkError || www.isHttpError)
             {
                 Debug.Log(www.error);
-                Debug.Log(www.downloadHandler.text); // print body response
-            }
+                Debug.Log(www.downloadHandler.text); // gestion des popups d'erreurs à faire dès que la phase de test est finie
+               /* find_object.FindObject(parent, "Error Popup").SetActive(true);
+                if (email == "")
+                {
+                    find_object.FindObject(parent, "Missing Email").SetActive(true);
+                }
+                else if (password == "")
+                {
+                    find_object.FindObject(parent, "Missing Password").SetActive(true);
+                }*/
+            }   
             else
             {
                 Debug.Log("Form upload complete! LogIn");

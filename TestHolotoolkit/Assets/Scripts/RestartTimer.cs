@@ -11,7 +11,7 @@ public class RestartTimer : MonoBehaviour, IInputClickHandler
     public void OnInputClicked(InputClickedEventData eventData)
     {
         this.transform.parent.transform.parent.gameObject.GetComponent<Timer>().restartTimer();
-        Text txt  = this.gameObject.transform.parent.transform.GetChild(1).gameObject.GetComponent<Text>();
+        Text txt  = this.gameObject.transform.parent.transform.GetChild(1).transform.GetChild(0).gameObject.GetComponent<Text>();
         txt.text = "Play";
     }
 

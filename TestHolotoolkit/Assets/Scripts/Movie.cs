@@ -19,6 +19,8 @@ public class Movie : MonoBehaviour {
         _movieCanvas.transform.parent = gameObject.transform;
         _movieCanvas.transform.localPosition = Vector3.zero;
         _movieCanvas.transform.localScale = new Vector3(1, 1, 1);
+        _movieCanvas.transform.GetChild(1).gameObject.AddComponent<PlayPauseVideo>();
+        _movieCanvas.transform.GetChild(2).gameObject.AddComponent<RestartVideo>();
 
     }
 

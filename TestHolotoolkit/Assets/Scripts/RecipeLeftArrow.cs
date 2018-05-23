@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using HoloToolkit.Unity.InputModule;
 
-public class RecipeLeftArrow : MonoBehaviour {
+public class RecipeLeftArrow : MonoBehaviour, IInputClickHandler
+{
     public void OnInputClicked(InputClickedEventData eventData)
     {
-        //print("oninputcliked left");
        GameObject.Find("RecipeManager").GetComponent<RecipeManager>().prevStep();
 
     }

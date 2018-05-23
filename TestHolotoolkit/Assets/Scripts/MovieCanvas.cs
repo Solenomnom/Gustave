@@ -16,7 +16,7 @@ public class MovieCanvas : MonoBehaviour {
     {
     }
 
-    public bool playOrPause()
+    public bool playOrPauseVideo()
     {
         if (movie_texture.isPlaying)
         {
@@ -31,7 +31,7 @@ public class MovieCanvas : MonoBehaviour {
 
     }
 
-    public void Restart()
+    public void RestartVideo()
     {
         movie_texture.Stop();
     }

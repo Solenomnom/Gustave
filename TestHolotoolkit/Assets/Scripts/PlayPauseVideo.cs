@@ -9,7 +9,7 @@ public class PlayPauseVideo : MonoBehaviour, IInputClickHandler
 {
     public void OnInputClicked(InputClickedEventData eventData)
     {
-        bool val = this.transform.parent.gameObject.GetComponent<MovieCanvas>().playOrPause();
+        bool val = this.transform.parent.gameObject.GetComponent<MovieCanvas>().playOrPauseVideo();
         Text txt = this.gameObject.transform.GetChild(0).gameObject.GetComponent<Text>();
 
         if (val)

@@ -73,6 +73,8 @@ public class MenuManager : MonoBehaviour {
         recipe_window.transform.localPosition += new Vector3(x_position[_windowNb], y_position[_windowNb], 0);
         recipe_window.transform.localScale = new Vector3(1, 1, 1);
         recipe_window.GetComponent<RecipeWindow>().setJsonFileName(json_path);
+        print("json file name" + json_path);
+
         recipe_window.GetComponent<RecipeWindow>().setInfo(_jsonRecipeReader.getFastRecipeTitle(json_path));
         
         return recipe_window;

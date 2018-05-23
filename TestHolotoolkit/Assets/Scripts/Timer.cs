@@ -31,9 +31,11 @@ public class Timer : MonoBehaviour {
         _timerPanel.transform.localPosition = new Vector3(0, 150, 0);
         _timerPanel.transform.localScale = new Vector3(1, 1, 1);
         _progressRadialHollow = Instantiate(_prefabProgressBar).GetComponent<ProgressBar.ProgressRadialBehaviour>();
-        _progressRadialHollow.transform.parent = gameObject.transform;
+        _progressRadialHollow.transform.parent = _timerPanel.transform;
         _progressRadialHollow.GetComponent<RectTransform>().position = gameObject.transform.position;
         _progressRadialHollow.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+        _timerPanel.transform.GetChild(1).gameObject.AddComponent<PlayPauseTimer>();
+        _timerPanel.transform.GetChild(2).gameObject.AddComponent<RestartTimer>();
     }
 
     public void destroyTimer()
@@ -46,12 +48,13 @@ public class Timer : MonoBehaviour {
 
         if (!_timerplay)
             return;
+        print("still ?");
         _timeLeft -= Time.deltaTime;
-        _progressRadialHollow.SetFillerSizeAsPercentage(_timeLeft/_totaltime * 100);
+        _progressRadialHollow.Value = _timeLeft/_totaltime * 100;
         if (_timeLeft < 0)
         {
-            print("Timer Ended");
-            //ring ring
+            _timerplay = false;
+            _timerPanel.transform.GetChild(0).GetComponent<Text>().text = "Timer ended !";
         }
         _timerPanel.transform.GetChild(0).transform.GetChild(0).GetComponent<Text>().text = _timeLeft.ToString();
     }
@@ -60,11 +63,27 @@ public class Timer : MonoBehaviour {
     {
         _timeLeft = timer;
         _totaltime = timer;
+        _timerPanel.transform.GetChild(0).transform.GetChild(0).GetComponent<Text>().text = _timeLeft.ToString();
+
     }
 
-    public void startTimer()
+    public bool playOrPauseTimer()
     {
-        _timerplay = true;
+        if (!_timerplay)
+            _timerplay = true;
+        else
+            _timerplay = false;
+        print(_timerplay);
+        if (!_timerplay)
+            print("PAUSE");
+        return _timerplay;
     }
 
+    public void restartTimer()
+    {
+        _timeLeft = _totaltime;
+        _progressRadialHollow.Value = 0;
+        _timerPanel.transform.GetChild(0).transform.GetChild(0).GetComponent<Text>().text = _timeLeft.ToString();
+
+    }
 }

@@ -14,14 +14,22 @@ public class MovieCanvas : MonoBehaviour {
 
     public void Play()
     {
-        movie_texture.Play();
     }
 
-    public void Pause()
+    public bool playOrPause()
     {
         if (movie_texture.isPlaying)
+        {
             movie_texture.Pause();
-    } 
+            return false;
+        }
+        else
+        {
+            movie_texture.Play();
+            return true;
+        }
+
+    }
 
     public void Restart()
     {

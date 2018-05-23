@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Gustave_recipe_scene.unity
     guid: eb6eaad467cca81428f1b3951a472d7c
+  - enabled: 1
+    path: Assets/Scenes/ConnectMenu.unity
+    guid: 33b4cafe0fe515441bfbca1999d85a7c

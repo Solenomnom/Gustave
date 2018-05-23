@@ -54,6 +54,11 @@ public class ClientManager : MonoBehaviour {
         SceneManager.LoadScene(0);
     }
 
+    public void LoadConnectMenuScene()
+    {
+        SceneManager.LoadScene(2);
+    }
+
     public ClientManager.Command checkCommands()
     {
         if (Input.GetKeyDown("right"))

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class ClientManager : MonoBehaviour {
 
     private static ClientManager _cm = new ClientManager();
@@ -80,5 +81,4 @@ public class ClientManager : MonoBehaviour {
         return jsonRecipeReader;
     }
 
-   
 }

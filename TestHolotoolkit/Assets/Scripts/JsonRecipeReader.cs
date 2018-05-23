@@ -25,6 +25,11 @@ public class JsonRecipeReader {
                 recipe_path.Add("JsonRecipes/" + file.Name.Substring(0, end_position_extension));
 
             }
+            if (file.Extension == ".json")
+            {
+               // int end_position_extension = file.Name.Length - 4;
+                recipe_path.Add("JsonRecipes/" + file.Name);
+            }
         }
         //print(recipe_path.Count);
         return recipe_path;

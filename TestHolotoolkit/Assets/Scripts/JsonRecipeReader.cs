@@ -38,6 +38,7 @@ public class JsonRecipeReader {
     public string getFastRecipeTitle(string path)
     {
         TextAsset json_file = Resources.Load(path) as TextAsset;
+        Debug.Log(path);
         return JSON.Parse(json_file.text)["description"]["name"].ToString().Trim('"');
     }
 

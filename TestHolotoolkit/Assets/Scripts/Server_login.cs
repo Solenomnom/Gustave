@@ -169,7 +169,7 @@ public class Server_login : MonoBehaviour, IInputClickHandler
                     StartCoroutine(GetRecipe(userRecipe[i].RecipeId));
                 }
                 yield return new WaitForSeconds(5);
-
+                ClientManager.CM.setUserInfo(userInformations);
                 ClientManager.CM.LoadMenuScene();
             }
         }

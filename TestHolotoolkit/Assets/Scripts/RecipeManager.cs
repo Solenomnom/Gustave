@@ -31,7 +31,6 @@ public class RecipeManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        checkCommands();
         _ingredientListCanvas.UpdateStep(_stepCanvas.progress, _jsonRecipeReader);
         checkVideo();
         checkTimer();
@@ -65,22 +64,6 @@ public class RecipeManager : MonoBehaviour {
             _movie.destroyMovieCanvas();
             _videoset = false;
         }
-    }
-
-    void loadBackMenu()
-    {
-        ClientManager.CM.LoadMenuScene();
-    }
-
-    void checkCommands()
-    {
-      
-        //if (Input.GetKeyDown("space") && _videoset)
-        // _movie.
-
-        if (Input.GetKeyDown(KeyCode.M))
-            loadBackMenu();
-
     }
 
     public void nextStep()

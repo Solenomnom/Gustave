@@ -9,7 +9,7 @@ public class ClientManager : MonoBehaviour {
 
     private static ClientManager _cm = new ClientManager();
     public static JsonRecipeReader jsonRecipeReader = new JsonRecipeReader();
-
+    public static UserInformations usrInfo = null;
     private string[] Scenes = { "Scenes/Gustave_menu_scene", "Scenes/Gutave_recipe_scene" };
 
     
@@ -79,6 +79,12 @@ public class ClientManager : MonoBehaviour {
     public JsonRecipeReader getJsonReader()
     {
         return jsonRecipeReader;
+    }
+
+    public void setUserInfo(UserInformations info)
+    {
+        Debug.Log("SET USR INFO");
+        usrInfo = info;
     }
 
 }

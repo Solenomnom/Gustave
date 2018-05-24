@@ -14,12 +14,7 @@ public class RecipeWindow : MonoBehaviour, IInputClickHandler {
 		
 	}
 
-   /* public void setJsonFileName(string json_file)
-    {
-        this.json_file_name = json_file;
-    }*/
-	
-	// Update is called once per frame
+
 	void Update () {
 		
 	}
@@ -33,11 +28,8 @@ public class RecipeWindow : MonoBehaviour, IInputClickHandler {
     public void OnInputClicked(InputClickedEventData eventData)
     {
          
-        print("windowisclicked");
         MenuManager menu_manager = GameObject.Find("Menu Manager").GetComponent<MenuManager>();
-        //int json_index = menu_manager.getJsonFilePathListNb(json_file_name);
         menu_manager.updateJsonReaderAndLoadScene(nb);
     
-        //throw new NotImplementedException();
     }
 }

@@ -155,12 +155,7 @@ public class MenuManager : MonoBehaviour {
 
     public void updateJsonReaderAndLoadScene(int nb)
     {
-        //print("updateJsonReaderAndLoadScene with this path : " + _jsonFilePathList[nb]);
         _jsonRecipeReader.setJsonRecipe(ClientManager.CM.jsonStrings[nb]);
-        /*print(">>avant");
-        print(ClientManager.CM.getJsonReader().getCurrentRecipeTitle());
-        print(">>après");*/
-
         ClientManager.CM.LoadRecipeScene();
     }
 

@@ -17,14 +17,14 @@ public class RecipeManager : MonoBehaviour {
     void Start () {
         print("----start");
         _cm = (ClientManager)FindObjectOfType(typeof(ClientManager));
-        print(_cm.getJsonReader().getCurrentRecipeTitle());
-
+        //print(_cm.getJsonReader().getCurrentRecipeTitle());
         _stepCanvas = this.transform.GetChild(0).gameObject.GetComponent<StepCanvas>();
         _ingredientListCanvas = this.transform.GetChild(1).gameObject.GetComponent<IngredientListCanvas>();
         _timer = this.transform.GetChild(2).gameObject.GetComponent<Timer>();
         _movie = this.transform.GetChild(3).gameObject.GetComponent<Movie>();
         _jsonRecipeReader = ClientManager.CM.getJsonReader();
-
+        //CERIC A DECOMMENTER
+        //_jsonRecipeReader.setJsonRecipe("");
         _stepCanvas.InitCanvas(_jsonRecipeReader);
         _ingredientListCanvas.InitCanvasIngredientList(_jsonRecipeReader);
     }

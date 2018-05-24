@@ -36,7 +36,7 @@ public class StepCanvas : MonoBehaviour {
     {
         stepDescribe.text = json_recipe_reader.getCurrentRecipeTitle();
         UpdateHud(json_recipe_reader);
-        print("here :" + json_recipe_reader.getCurrentRecipeNbSteps().ToString());
+        print("here :" + json_recipe_reader.getCurrentRecipeTitle());
         stepLength = json_recipe_reader.getCurrentRecipeNbSteps();
         squareArray = new Square[stepLength];
         updateArrows();

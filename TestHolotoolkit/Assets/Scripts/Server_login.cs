@@ -63,9 +63,11 @@ public class Server_login : MonoBehaviour, IInputClickHandler
     public IEnumerator LogInRequest(string grant_type, string email, string password)
     {
         WWWForm form = new WWWForm();
+        //email = "romain.chateigner@epitech.eu"
+        //password = "bibica25*"
         form.AddField("grant_type", grant_type);
-        form.AddField("username", "romain.chateigner@epitech.eu"); // pour les tests plus rapides
-        form.AddField("password", "bibica25*");
+        form.AddField("username", email);
+        form.AddField("password", password);
 
         GameObject parent = GameObject.Find("Menu Manager");
 
@@ -78,7 +80,7 @@ public class Server_login : MonoBehaviour, IInputClickHandler
 
             if (www.isNetworkError || www.isHttpError)
             {
-                Debug.Log(www.downloadHandler.text); // gestion des popups d'erreurs à faire dès que la phase de test est finie
+                Debug.Log(www.downloadHandler.text);
                 find_object.FindObject(parent, "Error Popup").SetActive(true);
                 find_object.FindObject(parent, "User not found").SetActive(false);
                 find_object.FindObject(parent, "Incorrect password").SetActive(false);
@@ -108,7 +110,6 @@ public class Server_login : MonoBehaviour, IInputClickHandler
                 tokens = getTokensFromJson(www.downloadHandler.text);
                 UserTokens.tokens = tokens;
                 Debug.Log("Access token >>>>>>>>>>>>>>>>" + UserTokens.tokens.access_token + "<<<<<<<<<<<<<<<<<<<<");
-
                 StartCoroutine(GetUserInfos());
             }
         }
@@ -172,7 +173,7 @@ public class Server_login : MonoBehaviour, IInputClickHandler
             if (www.isNetworkError || www.isHttpError)
             {
                 Debug.Log(www.error);
-                Debug.Log(www.downloadHandler.text); // print body response
+                Debug.Log(www.downloadHandler.text);
             }
             else
             {

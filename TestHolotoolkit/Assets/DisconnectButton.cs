@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using HoloToolkit.Unity.InputModule;
 using System;
+using UnityEngine.SceneManagement;
 
 public class DisconnectButton : MonoBehaviour, IInputClickHandler
 {
@@ -14,11 +15,11 @@ public class DisconnectButton : MonoBehaviour, IInputClickHandler
     {
 
         //supprimer tous les fichiers du dossier
+        ClientManager.CM.setUserInfo(null);
         Destroy(camera);
         Destroy(clientManager);
         Destroy(inputManager);
-        ClientManager.CM.setUserInfo(null);
-        ClientManager.CM.LoadConnectMenuScene();
+        SceneManager.LoadScene(2);
     }
 
     // Use this for initialization

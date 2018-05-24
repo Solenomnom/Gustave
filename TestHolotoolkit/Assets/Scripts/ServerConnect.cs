@@ -37,8 +37,14 @@ public class ServerConnect : MonoBehaviour, IInputClickHandler
 
             if (www.isNetworkError || www.isHttpError)
             {
-                Debug.Log("c'est pas bon"); // gestion d'erreur à revoir
+                Debug.Log(">>>>>>" + www.downloadHandler.text);
                 find_object.FindObject(parent, "Error Popup").SetActive(true);
+                find_object.FindObject(parent, "EmailTaken").SetActive(false);
+                find_object.FindObject(parent, "Wrong password").SetActive(false);
+                find_object.FindObject(parent, "Missing Email").SetActive(false);
+                find_object.FindObject(parent, "Missing Password").SetActive(false);
+                find_object.FindObject(parent, "Missing Username").SetActive(false);
+
                 if (email == "")
                 {
                     find_object.FindObject(parent, "Missing Email").SetActive(true);
@@ -51,6 +57,15 @@ public class ServerConnect : MonoBehaviour, IInputClickHandler
                 {
                     find_object.FindObject(parent, "Missing Username").SetActive(true);
                 }
+                else if (www.downloadHandler.text.Contains("Email already taken"))
+                {
+                    find_object.FindObject(parent, "EmailTaken").SetActive(true);
+                }
+                else if (www.downloadHandler.text.Contains("Validation error: Validation is on password failed"))
+                {
+                    find_object.FindObject(parent, "Wrong password").SetActive(true);
+                }
+
             }
             else
             {

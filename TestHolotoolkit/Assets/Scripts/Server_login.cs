@@ -64,7 +64,9 @@ public class Server_login : MonoBehaviour, IInputClickHandler
         WWWForm form = new WWWForm();
         form.AddField("grant_type", grant_type);
         form.AddField("username", "romain.chateigner@epitech.eu"); // pour les tests plus rapides
-        form.AddField("password", "bibica25*");
+        form.AddField("password", "bibica");
+
+        GameObject parent = GameObject.Find("Menu Manager");
 
         using (UnityWebRequest www = UnityWebRequest.Post("https://api.gustave.pro/oauth2/token", form))
         {
@@ -75,9 +77,13 @@ public class Server_login : MonoBehaviour, IInputClickHandler
 
             if (www.isNetworkError || www.isHttpError)
             {
-                Debug.Log(www.error);
                 Debug.Log(www.downloadHandler.text); // gestion des popups d'erreurs à faire dès que la phase de test est finie
-               /* find_object.FindObject(parent, "Error Popup").SetActive(true);
+                find_object.FindObject(parent, "Error Popup").SetActive(true);
+                find_object.FindObject(parent, "User not found").SetActive(false);
+                find_object.FindObject(parent, "Incorrect password").SetActive(false);
+                find_object.FindObject(parent, "Missing Email").SetActive(false);
+                find_object.FindObject(parent, "Missing Password").SetActive(false);
+                
                 if (email == "")
                 {
                     find_object.FindObject(parent, "Missing Email").SetActive(true);
@@ -85,7 +91,15 @@ public class Server_login : MonoBehaviour, IInputClickHandler
                 else if (password == "")
                 {
                     find_object.FindObject(parent, "Missing Password").SetActive(true);
-                }*/
+                }
+                else if (www.downloadHandler.text.Contains("User not found"))
+                {
+                    find_object.FindObject(parent, "User not found").SetActive(true);
+                }
+                else if (www.downloadHandler.text.Contains("Incorrect credentials"))
+                {
+                    find_object.FindObject(parent, "Incorrect password").SetActive(true);
+                }
             }   
             else
             {

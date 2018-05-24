@@ -40,6 +40,7 @@ public class Server_login : MonoBehaviour, IInputClickHandler
     public Tokens tokens;
     public InputField emailField;
     public InputField passwordField;
+    public List<string> jsonStrings = new List<string>();
 
     // Use this for initialization
     void Start()
@@ -64,7 +65,7 @@ public class Server_login : MonoBehaviour, IInputClickHandler
         WWWForm form = new WWWForm();
         form.AddField("grant_type", grant_type);
         form.AddField("username", "romain.chateigner@epitech.eu"); // pour les tests plus rapides
-        form.AddField("password", "bibica");
+        form.AddField("password", "bibica25*");
 
         GameObject parent = GameObject.Find("Menu Manager");
 
@@ -155,7 +156,8 @@ public class Server_login : MonoBehaviour, IInputClickHandler
             else
             {
                 Debug.Log("Here is the file >>>>>>" + www.downloadHandler.text);
-                System.IO.File.WriteAllText(@"Assets\Resources\JsonRecipes\" + id + "_recipe.json", www.downloadHandler.text);
+                //System.IO.File.WriteAllText(@"Assets\Resources\JsonRecipes\" + id + "_recipe.json", www.downloadHandler.text);
+                jsonStrings.Add(www.downloadHandler.text);
             }
         }
     }
@@ -182,8 +184,13 @@ public class Server_login : MonoBehaviour, IInputClickHandler
                     Debug.Log("RecipeId numéro //////////" + userRecipe[i].RecipeId);
                     StartCoroutine(GetRecipe(userRecipe[i].RecipeId));
                 }
-                yield return new WaitForSeconds(5);
+                yield return new WaitForSeconds(3);
                 ClientManager.CM.setUserInfo(userInformations);
+                Debug.Log("dans serveur - avant de le mettre dans cm : " +jsonStrings[0]);
+                string json_brut = "{\"description\": { \"rank\": \"5\",\"price_rank\": \"3\",\"difficulty\": \"2\",\"name\": \"lotte lardée au thym\",\"cook_time\": \"20\",\"prepa_time\": \"20\",\"break_time\": \"0\",\"total_time\": \"40\",\"desc\": \"De délicieux filets de lotte enroulé dans du lard\",\"eater_nbr\": \"2\",\"tags\": [\"\"]},	\"tools\": [{\"name\": \"couteau\",\"desc\": \"un couteau\",\"icone\": \"l'image à l'addr\",\"quantity\": \"1\"}],\"ingredients\": [{\"name\": \"filet de lotte\",\"desc\": \"un filet de lotte\",\"icone\": \"image\",\"quantity\": \"2 filets (environ 200g chacun)\",\"unit\": \"g\"},{\"name\": \"tranches de lard\",\"desc\": \"des tranches de lard fumé ou pas\",\"icone\": \"image\",\"quantity\": \"4 à 6 tranches de lard\",\"unit\": \"unité\"},{\"name\": \"thym\",\"desc\": \"branches de thym\",\"icone\": \"image\",\"quantity\": \"2 branches\",\"unit\": \"unité\"}],\"steps\": [{\"id\": 0,\"info\": {\"icone\": \"addr\",\"desc\": \"Lotte lardée au thym\"},\"text\": \"Lotte lardée au thym\",\"tip\": \"\",\"video\": [\"adresse d'une vidéo\",\"autre addr\"],\"image\": \"img1\",\"animation_gustave\": \"56\",\"timer_flag\": 0,\"video_flag\":0},{\"id\": 1,\"info\": {\"icone\": \"addr\",\"desc\": \"préparer le poisson\"},\"text\": \"Préparer les filets de lotte en retirant la peau les déchets\",\"tip\": \"\",\"video\": [\"gordon_ramsay\"],\"image\": \"img1\",\"animation_gustave\": \"56\",\"timer_flag\": 0,\"video_flag\": 1},{\"id\": 2,\"info\": {\"icone\": \"addr\",\"desc\": \"Ajouter le thym.\"},\"text\": \"Inciser les filets de lotte et mettre le thym.\",\"tip\": \"Vous pouvez également poivrer si vous le désirez.\",\"video\": [\"adresse d'une vidéo\",\"autre addr\"],\"image\": \"img2\",\"animation_gustave\": \"56\",\"timer_flag\": 0,\"video_flag\": 0},{\"id\": 3,\"info\": {\"icone\": \"addr\",\"desc\": \"Larder la lotte \"},\"text\": \"Enrouler la lotte avec le lard.\",\"tip\": \"Mettez des cures dents pour faire tenir le lard si besoin.\",\"video\": [\"adresse d'une vidéo\",\"autre addr\"],\"image\": \"img3\",\"animation_gustave\": \"56\",\"timer_flag\": 0,\"video_flag\": 0},{\"id\": 4,\"info\": {\"icone\": \"addr\",\"desc\": \"Cuisson de la lotte\"},\"text\": \"Cuire la lotte au four à 185° pendant 20 minutes.\",\"tip\": \"Préchaffez votre four.\",\"video\": [\"adresse d'une vidéo\",\"autre addr\"],\"image\": \"img4\",\"animation_gustave\": \"56\",\"timer_flag\": 1,\"timer\": {\"time\": 1200,\"callback\": {\"action\": \"Enlever les lottes du four.\",\"tips\": \"\"}},\"video_flag\":0}]}";
+                jsonStrings.Add(json_brut);
+                ClientManager.CM.setJsonStringList(jsonStrings);
+                Debug.Log("dans serveur - après : " + ClientManager.CM.jsonStrings[0]);
                 ClientManager.CM.LoadMenuScene();
             }
         }

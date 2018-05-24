@@ -6,17 +6,17 @@ using HoloToolkit.Unity.InputModule;
 using System;
 
 public class RecipeWindow : MonoBehaviour, IInputClickHandler {
-    string json_file_name = null;
+    //string json_file_name = null;
 
 	// Use this for initialization
 	void Start () {
 		
 	}
 
-    public void setJsonFileName(string json_file)
+   /* public void setJsonFileName(string json_file)
     {
         this.json_file_name = json_file;
-    }
+    }*/
 	
 	// Update is called once per frame
 	void Update () {

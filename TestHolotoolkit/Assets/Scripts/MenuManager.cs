@@ -39,9 +39,9 @@ public class MenuManager : MonoBehaviour {
             ClientManager.CM.initJsonReader();
         }
         _jsonRecipeReader = ClientManager.CM.getJsonReader();
-        _jsonFilePathList = _jsonRecipeReader.getJsonFilePaths();
+        //_jsonFilePathList = _jsonRecipeReader.getJsonFilePaths();
         createRecipeWindowsList();
-        if (_jsonFilePathList.Count > 4)
+        if (ClientManager.CM.jsonStrings.Count > 4)
         {
             _multiplePages = true;
             //  create Prev and Next Arrows !
@@ -72,9 +72,10 @@ public class MenuManager : MonoBehaviour {
         recipe_window.transform.SetParent(gameObject.transform.GetChild(0).transform, false);
         recipe_window.transform.localPosition += new Vector3(x_position[_windowNb], y_position[_windowNb], 0);
         recipe_window.transform.localScale = new Vector3(1, 1, 1);
-        recipe_window.GetComponent<RecipeWindow>().setJsonFileName(json_path);
-        print("json file name" + json_path);
-
+        //.setJsonFileName(json_path);
+        //recipe_window.GetComponent<RecipeWindow>().setJsonFileName(json_path);
+        //print("json file name" + json_path);
+        print("create recipe window");
         recipe_window.GetComponent<RecipeWindow>().setInfo(_jsonRecipeReader.getFastRecipeTitle(json_path));
         
         return recipe_window;
@@ -84,14 +85,18 @@ public class MenuManager : MonoBehaviour {
     {
         _windowNb = 0;
         //print(window_nb);
-        if (_jsonFilePathList.Count == 0)
+        print("icicici" + ClientManager.CM.jsonStrings[0]);
+        if (ClientManager.CM.jsonStrings.Count == 0)
             return;
         print("here is the page :" + _jsonPathStartPositionInList.ToString());
         print("max = " + _windowMax.ToString());
-        print("size = " + _jsonFilePathList.Count.ToString());
-        for(; (_windowNb < _windowMax) && (_windowNb < _jsonFilePathList.Count - _jsonPathStartPositionInList); _windowNb++) {
-            print(_jsonFilePathList[_jsonPathCurrentPositionInList]); 
-           _recipeWindowsGameobjectList.Add(createRecipeWindow(_jsonFilePathList[_jsonPathCurrentPositionInList]));
+        print("size = " + ClientManager.CM.jsonStrings.Count.ToString());
+        //_jsonFilePathList.Count
+        for (; (_windowNb < _windowMax) && (_windowNb <  ClientManager.CM.jsonStrings.Count - _jsonPathStartPositionInList); _windowNb++) {
+           // _jsonFilePathList
+            print(ClientManager.CM.jsonStrings[_jsonPathCurrentPositionInList]);
+            //createRecipeWindow(_jsonFilePathList[_jsonPathCurrentPositionInList])
+            _recipeWindowsGameobjectList.Add(createRecipeWindow(ClientManager.CM.jsonStrings[_jsonPathCurrentPositionInList]));
             _jsonPathCurrentPositionInList++;
         }
         if (_jsonPathStartPositionInList != 0) { 
@@ -99,7 +104,8 @@ public class MenuManager : MonoBehaviour {
             _leftArrow.GetComponent<MenuLeftArrow>().enabled = true;
             _leftArrow.GetComponent<RecipeLeftArrow>().enabled = false;
         }
-        if (_jsonPathStartPositionInList < _jsonFilePathList.Count - 4) { 
+        //_jsonFilePathList.Count
+        if (_jsonPathStartPositionInList <  ClientManager.CM.jsonStrings.Count - 4) { 
             _rightArrow = instantiateArrow(_prefabRightArrow);
             _rightArrow.GetComponent<MenuRightArrow>().enabled = true;
             _rightArrow.GetComponent<RecipeRightArrow>().enabled = false;
@@ -149,8 +155,8 @@ public class MenuManager : MonoBehaviour {
 
     public void updateJsonReaderAndLoadScene(int nb)
     {
-        print("updateJsonReaderAndLoadScene with this path : " + _jsonFilePathList[nb]);
-        _jsonRecipeReader.setJsonRecipe(_jsonFilePathList[nb]);
+        //print("updateJsonReaderAndLoadScene with this path : " + _jsonFilePathList[nb]);
+        _jsonRecipeReader.setJsonRecipe(ClientManager.CM.jsonStrings[nb]);
         /*print(">>avant");
         print(ClientManager.CM.getJsonReader().getCurrentRecipeTitle());
         print(">>après");*/

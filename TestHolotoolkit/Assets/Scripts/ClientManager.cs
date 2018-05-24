@@ -10,6 +10,7 @@ public class ClientManager : MonoBehaviour {
     private static ClientManager _cm = new ClientManager();
     public static JsonRecipeReader jsonRecipeReader = new JsonRecipeReader();
     public static UserInformations usrInfo = null;
+    public List<string> jsonStrings;
     private string[] Scenes = { "Scenes/Gustave_menu_scene", "Scenes/Gutave_recipe_scene" };
 
     
@@ -85,6 +86,11 @@ public class ClientManager : MonoBehaviour {
     {
         Debug.Log("SET USR INFO");
         usrInfo = info;
+    }
+
+    public void setJsonStringList(List<string> list)
+    {
+        jsonStrings = list;
     }
 
 }

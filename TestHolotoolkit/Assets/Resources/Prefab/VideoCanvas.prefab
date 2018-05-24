@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114242154904183312}
   - component: {fileID: 225220073232334656}
   - component: {fileID: 65134888761804846}
-  - component: {fileID: 114630140741954232}
+  - component: {fileID: 114342451603980514}
   m_Layer: 0
   m_Name: VideoCanvas
   m_TagString: Untagged
@@ -78,6 +78,23 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114342451603980514
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1025312319205602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d5a0a60fbe897549ad0bfe2039f12b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HostTransform: {fileID: 0}
+  DistanceScale: 2
+  RotationMode: 0
+  PositionLerpSpeed: 0.2
+  RotationLerpSpeed: 0.2
+  IsDraggingEnabled: 1
 --- !u!114 &114382574982023324
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -138,23 +155,6 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &114630140741954232
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1025312319205602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbad991a9894486418e4988222483ef8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DefaultGazeDistance: 2
-  PlaceParentOnTap: 0
-  ParentGameObjectToPlace: {fileID: 0}
-  IsBeingPlaced: 0
-  AllowMeshVisualizationControl: 1
-  UseColliderCenter: 0
 --- !u!222 &222282976469193118
 CanvasRenderer:
   m_ObjectHideFlags: 1

@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 65098520144987872}
   - component: {fileID: 114150992891441364}
   - component: {fileID: 114501668586625466}
-  - component: {fileID: 114889752549797100}
+  - component: {fileID: 114257954011663816}
   m_Layer: 0
   m_Name: MovieCanvas
   m_TagString: Untagged
@@ -194,6 +194,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 985276071e4f97142937af21f1bb5e7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114257954011663816
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1819410888828258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d5a0a60fbe897549ad0bfe2039f12b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HostTransform: {fileID: 0}
+  DistanceScale: 2
+  RotationMode: 0
+  PositionLerpSpeed: 0.2
+  RotationLerpSpeed: 0.2
+  IsDraggingEnabled: 1
 --- !u!114 &114276865297252860
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -338,23 +355,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Play
---- !u!114 &114889752549797100
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1819410888828258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12f64a7e6f461aa409b8322f413f96b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DefaultGazeDistance: 2
-  PlaceParentOnTap: 0
-  ParentGameObjectToPlace: {fileID: 0}
-  IsBeingPlaced: 0
-  AllowMeshVisualizationControl: 1
-  UseColliderCenter: 0
 --- !u!114 &114942460444976682
 MonoBehaviour:
   m_ObjectHideFlags: 1

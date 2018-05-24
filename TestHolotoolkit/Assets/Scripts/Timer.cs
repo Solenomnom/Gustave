@@ -13,9 +13,10 @@ public class Timer : MonoBehaviour {
 
     // Use this for initialization
     float _timeLeft = 0f;
+    float _currenttime = 0f;
     float _totaltime = 0f;
     bool _timerplay = false;
-
+    bool flag = true;
     ProgressBar.ProgressRadialBehaviour _progressRadialHollow;
     GameObject _timerPanel;
     //GameObject cube;
@@ -49,8 +50,14 @@ public class Timer : MonoBehaviour {
         if (!_timerplay)
             return;
         print("still ?");
+        Debug.Log("time left before = " + _timeLeft);
+        _currenttime += Time.deltaTime;
         _timeLeft -= Time.deltaTime;
-        _progressRadialHollow.Value = _timeLeft/_totaltime * 100;
+       // if (flag) {
+       Debug.Log("time left after = " + _timeLeft);
+       Debug.Log("time pourcentage = " + _currenttime / _totaltime * 100);
+        _progressRadialHollow.Value = _currenttime / _totaltime * 100;
+     //   }
         if (_timeLeft < 0)
         {
             _timerplay = false;
@@ -82,6 +89,7 @@ public class Timer : MonoBehaviour {
     public void restartTimer()
     {
         _timeLeft = _totaltime;
+        _currenttime = 0;
         _progressRadialHollow.Value = 0;
         _timerPanel.transform.GetChild(0).transform.GetChild(0).GetComponent<Text>().text = _timeLeft.ToString();
 

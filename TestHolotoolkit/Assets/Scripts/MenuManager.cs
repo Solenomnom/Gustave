@@ -64,7 +64,7 @@ public class MenuManager : MonoBehaviour {
 
     }
 
-    GameObject createRecipeWindow(string json_path)
+    GameObject createRecipeWindow(string json_path, int nb)
     {
         GameObject recipe_window = null;
         
@@ -76,7 +76,7 @@ public class MenuManager : MonoBehaviour {
         //recipe_window.GetComponent<RecipeWindow>().setJsonFileName(json_path);
         //print("json file name" + json_path);
         print("create recipe window");
-        recipe_window.GetComponent<RecipeWindow>().setInfo(_jsonRecipeReader.getFastRecipeTitle(json_path));
+        recipe_window.GetComponent<RecipeWindow>().setInfo(_jsonRecipeReader.getFastRecipeTitle(json_path), nb);
         
         return recipe_window;
     }
@@ -96,7 +96,7 @@ public class MenuManager : MonoBehaviour {
            // _jsonFilePathList
             print(ClientManager.CM.jsonStrings[_jsonPathCurrentPositionInList]);
             //createRecipeWindow(_jsonFilePathList[_jsonPathCurrentPositionInList])
-            _recipeWindowsGameobjectList.Add(createRecipeWindow(ClientManager.CM.jsonStrings[_jsonPathCurrentPositionInList]));
+            _recipeWindowsGameobjectList.Add(createRecipeWindow(ClientManager.CM.jsonStrings[_jsonPathCurrentPositionInList], _jsonPathCurrentPositionInList));
             _jsonPathCurrentPositionInList++;
         }
         if (_jsonPathStartPositionInList != 0) { 

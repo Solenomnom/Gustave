@@ -7,6 +7,7 @@ using System;
 
 public class RecipeWindow : MonoBehaviour, IInputClickHandler {
     //string json_file_name = null;
+    int nb = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -23,9 +24,10 @@ public class RecipeWindow : MonoBehaviour, IInputClickHandler {
 		
 	}
 
-    public void setInfo(string recipe_title) {
+    public void setInfo(string recipe_title, int pos) {
         Text text = this.transform.GetChild(1).GetComponent<Text>();
         text.text = recipe_title;
+        nb = pos;
     }
 
     public void OnInputClicked(InputClickedEventData eventData)
@@ -34,7 +36,7 @@ public class RecipeWindow : MonoBehaviour, IInputClickHandler {
         print("windowisclicked");
         MenuManager menu_manager = GameObject.Find("Menu Manager").GetComponent<MenuManager>();
         //int json_index = menu_manager.getJsonFilePathListNb(json_file_name);
-        menu_manager.updateJsonReaderAndLoadScene(0);
+        menu_manager.updateJsonReaderAndLoadScene(nb);
     
         //throw new NotImplementedException();
     }

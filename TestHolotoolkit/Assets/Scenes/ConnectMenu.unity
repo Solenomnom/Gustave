@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641252, b: 0.574817, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.574817, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1707,7 +1707,6 @@ GameObject:
   - component: {fileID: 639102792}
   - component: {fileID: 639102791}
   - component: {fileID: 639102790}
-  - component: {fileID: 639102789}
   - component: {fileID: 639102788}
   m_Layer: 0
   m_Name: Error Popup
@@ -1757,18 +1756,6 @@ MonoBehaviour:
   SmoothPositionLerpRatio: 0.5
   SmoothRotationLerpRatio: 0.5
   SmoothScaleLerpRatio: 0.5
---- !u!114 &639102789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114350941594197562, guid: f381862c417c2c043a6063e7d5e72446,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 639102786}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbad991a9894486418e4988222483ef8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &639102790
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1778,9 +1765,9 @@ BoxCollider:
   m_GameObject: {fileID: 639102786}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1022, y: 640, z: 200}
+  m_Size: {x: 400, y: 200, z: 100}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!225 &639102791
 CanvasGroup:

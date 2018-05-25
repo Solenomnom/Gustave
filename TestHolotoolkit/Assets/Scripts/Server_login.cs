@@ -63,8 +63,8 @@ public class Server_login : MonoBehaviour, IInputClickHandler
     public IEnumerator LogInRequest(string grant_type, string email, string password)
     {
         WWWForm form = new WWWForm();
-        //email = "romain.chateigner@epitech.eu"
-        //password = "bibica25*"
+        email = "romain.chateigner@epitech.eu";
+        password = "bibica25*";
         form.AddField("grant_type", grant_type);
         form.AddField("username", email);
         form.AddField("password", password);

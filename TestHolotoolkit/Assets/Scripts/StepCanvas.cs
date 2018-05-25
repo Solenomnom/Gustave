@@ -34,6 +34,7 @@ public class StepCanvas : MonoBehaviour {
 
     public void InitCanvas(JsonRecipeReader json_recipe_reader)
     {
+        Debug.Log("HEYYYYYYYY");
         stepDescribe.text = json_recipe_reader.getCurrentRecipeTitle();
         UpdateHud(json_recipe_reader);
         print("here :" + json_recipe_reader.getCurrentRecipeTitle());
@@ -186,5 +187,13 @@ public class StepCanvas : MonoBehaviour {
         tmp.transform.SetParent(gameObject.transform, false);
         return tmp;
     }
+    public int getCurrentStep()
+    {
+        return (progress);
+    }
 
+    public int getTotalSteps()
+    {
+        return (stepLength);
+    }
 }

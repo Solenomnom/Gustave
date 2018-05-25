@@ -155,7 +155,9 @@ public class MenuManager : MonoBehaviour {
 
     public void updateJsonReaderAndLoadScene(int nb)
     {
-        _jsonRecipeReader.setJsonRecipe(ClientManager.CM.jsonStrings[nb]);
+        Debug.Log(ClientManager.CM.jsonStrings);
+        Debug.Log(ClientManager.CM.jsonStrings[nb]);
+        ClientManager.CM.getJsonReader().setJsonRecipe(ClientManager.CM.jsonStrings[nb]);
         ClientManager.CM.LoadRecipeScene();
     }
 

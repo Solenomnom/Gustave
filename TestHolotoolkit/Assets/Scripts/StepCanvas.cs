@@ -186,5 +186,13 @@ public class StepCanvas : MonoBehaviour {
         tmp.transform.SetParent(gameObject.transform, false);
         return tmp;
     }
+    public int getCurrentStep()
+    {
+        return (progress);
+    }
 
+    public int getTotalSteps()
+    {
+        return (stepLength);
+    }
 }

@@ -75,9 +75,12 @@ public class RecipeManager : MonoBehaviour {
     public void prevStep()
     {
         _stepCanvas.PrevStep(_jsonRecipeReader);
-    } 
+    }
 
-  
+    public StepCanvas getStepCanvas()
+    {
+        return (_stepCanvas);
+    }
 
 
 }
